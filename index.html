@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WL_C# — La transition naturelle de WINDEV vers C#</title>
+<meta name="description" content="WL_C# est une bibliothèque C# gratuite qui reproduit les fonctions du WLangage, pour faciliter le passage des développeurs WINDEV vers Visual Studio et .NET.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="entete" id="haut">
+  <div class="conteneur entete-interieur">
+    <a href="#haut" class="logo">WL<span>_C#</span></a>
+    <nav class="nav-principale" id="nav-principale">
+      <a href="#presentation">Présentation</a>
+      <a href="#fonctions">Fonctions</a>
+      <a href="#exemples">Exemples</a>
+      <a href="#utilisation">Utilisation</a>
+      <a href="#versions">Versions</a>
+      <a href="#philosophie">Philosophie</a>
+      <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="bouton-nav" target="_blank" rel="noopener">Télécharger</a>
+    </nav>
+    <button class="bouton-menu-mobile" id="bouton-menu-mobile" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- SECTION 1 — PRÉSENTATION                                       -->
+<!-- ============================================================ -->
+<section class="hero" id="presentation">
+  <div class="conteneur">
+    <p class="hero-eyebrow">Bibliothèque C# — gratuite pour Visual Studio &amp; .NET</p>
+    <h1>WL_C#</h1>
+    <p class="hero-soustitre">La transition naturelle de WINDEV vers Visual Studio &amp; C#</p>
+    <p class="hero-texte">
+      WL_C# est une librairie C# destinée en priorité aux développeurs qui connaissent et utilisent
+      couramment le WLangage de WINDEV. Son objectif est simple&nbsp;: faciliter le passage vers C#
+      et Visual Studio, sans perdre les habitudes, les automatismes et le confort apportés par les
+      fonctions du WLangage.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="bouton bouton-principal" target="_blank" rel="noopener">Télécharger WL_C#</a>
+      <a href="#exemples" class="bouton bouton-secondaire">Voir des exemples</a>
+    </div>
+    <div class="hero-chiffres">
+      <div class="chiffre"><strong>360+</strong><span>fonctions portées</span></div>
+      <div class="chiffre"><strong>43</strong><span>types avancés</span></div>
+      <div class="chiffre"><strong>100%</strong><span>gratuit</span></div>
+      <div class="chiffre"><strong>1900+</strong><span>tests automatisés</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-claire">
+  <div class="conteneur conteneur-texte">
+    <p>
+      Lorsqu'un développeur WINDEV découvre C#, il retrouve un langage extrêmement puissant, mais
+      également une philosophie différente. De nombreuses opérations très simples en WLangage
+      nécessitent de connaître les bonnes classes .NET, les bonnes méthodes, et parfois plusieurs
+      lignes de code.
+    </p>
+    <p><strong>WL_C# sert de passerelle entre ces deux environnements.</strong></p>
+    <p>
+      La librairie reproduit progressivement en C# un ensemble de fonctions familières du WLangage :
+      manipulation des chaînes, fichiers et répertoires, dates, conversions, presse-papiers,
+      fonctions système, etc. Un développeur habitué à écrire une fonction WINDEV peut ainsi
+      retrouver en C# un nom, un comportement et une logique d'utilisation qu'il connaît déjà, tout
+      en travaillant dans l'écosystème C# / .NET.
+    </p>
+    <p>
+      WL_C# n'a pas vocation à remplacer .NET, ni à masquer C#. Elle permet au contraire de réduire
+      la courbe d'apprentissage, d'accélérer le développement et de rendre le code immédiatement
+      plus familier pour un développeur venant de WINDEV.
+    </p>
+    <p>
+      La librairie est développée et validée à l'aide d'une importante suite de tests automatisés
+      (plus de 1900 tests à ce jour), afin de vérifier autant que possible la compatibilité du
+      comportement des fonctions proposées.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conteneur conteneur-texte">
+    <h2>Deux environnements finalement très proches</h2>
+    <p>
+      Pour un développeur WINDEV, le passage vers Visual Studio et C# est beaucoup moins dépaysant
+      qu'on pourrait le penser. Les deux environnements présentent de nombreuses similitudes :
+      organisation générale de l'IDE, explorateur de projet, éditeur de code, complétion
+      automatique, débogueur, gestion des projets et des configurations, sans oublier de nombreux
+      raccourcis clavier et réflexes de développement très proches. Un développeur habitué à WINDEV
+      retrouve donc rapidement ses repères dans Visual Studio.
+    </p>
+    <p>
+      La principale différence ne se situe finalement pas tant dans l'environnement de développement
+      que dans le langage lui-même. Là où le WLangage fournit directement un très grand nombre de
+      fonctions prêtes à l'emploi, C# s'appuie davantage sur les classes et les différentes API de
+      .NET. C'est précisément à cet endroit que WL_C# intervient : permettre au développeur WINDEV de
+      conserver une partie de son vocabulaire et de ses automatismes tout en découvrant
+      progressivement la puissance de C# et de .NET.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2 — FONCTIONS DISPONIBLES                              -->
+<!-- ============================================================ -->
+<section class="section section-claire" id="fonctions">
+  <div class="conteneur">
+    <p class="section-eyebrow">Ce qui est déjà disponible</p>
+    <h2>Fonctions disponibles</h2>
+    <p class="section-intro">
+      Chaque fonction listée ci-dessous existe réellement dans la librairie et possède sa suite de
+      tests automatisés. La liste s'agrandit chaque mois.
+    </p>
+    <div class="grille-modules">
+      <div class="module-carte"><span class="module-nombre">112</span><span class="module-nom">Fichiers &amp; répertoires</span></div>
+      <div class="module-carte"><span class="module-nombre">83</span><span class="module-nom">Fonctions numériques</span></div>
+      <div class="module-carte"><span class="module-nombre">49</span><span class="module-nom">Dates &amp; heures</span></div>
+      <div class="module-carte"><span class="module-nombre">46</span><span class="module-nom">Chaînes de caractères</span></div>
+      <div class="module-carte"><span class="module-nombre">43</span><span class="module-nom">Types avancés</span></div>
+      <div class="module-carte"><span class="module-nombre">12</span><span class="module-nom">Registre Windows</span></div>
+      <div class="module-carte"><span class="module-nombre">10</span><span class="module-nom">Couleurs</span></div>
+      <div class="module-carte"><span class="module-nombre">9</span><span class="module-nom">Commandes</span></div>
+      <div class="module-carte"><span class="module-nombre">8</span><span class="module-nom">Système</span></div>
+      <div class="module-carte"><span class="module-nombre">7</span><span class="module-nom">Presse-papiers</span></div>
+      <div class="module-carte"><span class="module-nombre">7</span><span class="module-nom">Listes</span></div>
+      <div class="module-carte"><span class="module-nombre">7</span><span class="module-nom">Dialogues</span></div>
+      <div class="module-carte"><span class="module-nombre">4</span><span class="module-nom">Pays &amp; continents</span></div>
+      <div class="module-carte"><span class="module-nombre">3</span><span class="module-nom">Polices</span></div>
+      <div class="module-carte"><span class="module-nombre">2</span><span class="module-nom">Utilitaires divers</span></div>
+      <div class="module-carte"><span class="module-nombre">1</span><span class="module-nom">Projet</span></div>
+    </div>
+    <p class="section-note">
+      Soit plus de <strong>360 fonctions</strong> et <strong>43 types avancés</strong> (Couleur,
+      Police, Image, Adresse, Contact, Événement, types géométriques...) déjà portés — et ce n'est
+      qu'un début.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3 — EXEMPLES D'UTILISATION                             -->
+<!-- ============================================================ -->
+<section class="section" id="exemples">
+  <div class="conteneur">
+    <p class="section-eyebrow">La preuve par l'exemple</p>
+    <h2>Exemples d'utilisation</h2>
+    <p class="section-intro">
+      À gauche, le code que vous écrivez avec WL_C# — le même vocabulaire qu'en WLangage. À
+      droite, ce qu'il faudrait écrire en C# pur, avec les seules classes .NET, pour obtenir
+      exactement le même résultat sans la librairie.
+    </p>
+
+    <div class="exemple-grand">
+      <div class="exemple-colonne">
+        <p class="exemple-etiquette exemple-etiquette-avec">WinDev — et C# avec WL_C#</p>
+        <pre><code>if (!fFichierExiste(cheminFichier))
+{
+    fSauveTexte(cheminFichier, sTexte);
+}
+string sMajuscule = Majuscule(sTexte);
+string sRepertoireTemp = fRepTemp();</code></pre>
+      </div>
+      <div class="exemple-colonne">
+        <p class="exemple-etiquette exemple-etiquette-sans">C# pur, sans WL_C#</p>
+        <pre><code>if (!File.Exists(cheminFichier))
+{
+    File.WriteAllText(cheminFichier, sTexte);
+}
+string sMajuscule = sTexte.ToUpper();
+string sRepertoireTemp = Path.GetTempPath();</code></pre>
+      </div>
+    </div>
+
+    <div class="exemple-grand">
+      <div class="exemple-colonne">
+        <p class="exemple-etiquette exemple-etiquette-avec">WinDev — et C# avec WL_C#</p>
+        <pre><code>string fichier = fSélecteur("", "", "Choisissez un fichier",
+    "Fichier texte (*.txt)|*.txt", "*.txt", fselCrée);
+if (fichier != "" &amp;&amp; !fFichierExiste(fichier))
+{
+    int idFichier = fCrée(fichier);
+    fEcrit(idFichier, "Bonjour depuis WL_C#");
+    fFerme(idFichier);
+}</code></pre>
+      </div>
+      <div class="exemple-colonne">
+        <p class="exemple-etiquette exemple-etiquette-sans">C# pur, sans WL_C#</p>
+        <pre><code>using Microsoft.Win32;
+
+SaveFileDialog sélecteur = new SaveFileDialog();
+sélecteur.Filter = "Fichiers texte (*.txt)|*.txt";
+if (sélecteur.ShowDialog() == true)
+{
+    string fichier = sélecteur.FileName;
+    if (!File.Exists(fichier))
+    {
+        using StreamWriter flux = new StreamWriter(fichier);
+        flux.Write("Bonjour depuis C#");
+    }
+}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="exemple-titre-secondaire">Et sur d'autres modules, le principe reste identique</h3>
+    <div class="exemple-petits">
+
+      <div class="exemple-petit">
+        <p class="exemple-petit-titre">Presse-papiers</p>
+        <div class="exemple-grand exemple-grand-compact">
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-avec">WinDev — et C# avec WL_C#</p>
+            <pre><code>VersPressePapier(sTexte);</code></pre>
+          </div>
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-sans">C# pur, sans WL_C#</p>
+            <pre><code>Clipboard.SetText(sTexte);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="exemple-petit">
+        <p class="exemple-petit-titre">Dialogues</p>
+        <div class="exemple-grand exemple-grand-compact">
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-avec">WinDev — et C# avec WL_C#</p>
+            <pre><code>Confirmer("Voulez-vous continuer ?");</code></pre>
+          </div>
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-sans">C# pur, sans WL_C#</p>
+            <pre><code>MessageBox.Show("Voulez-vous continuer ?", "Confirmation",
+    MessageBoxButtons.YesNo, MessageBoxIcon.Question);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="exemple-petit">
+        <p class="exemple-petit-titre">Listes</p>
+        <div class="exemple-grand exemple-grand-compact">
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-avec">WinDev — et C# avec WL_C#</p>
+            <pre><code>Liste&lt;string&gt; maListe = new();
+maListe.Ajoute("WINDEV");
+maListe.Insère(PremierElément, "WEBDEV");
+maListe.Supprime(DernierElément);</code></pre>
+          </div>
+          <div class="exemple-colonne">
+            <p class="exemple-etiquette exemple-etiquette-sans">C# pur, sans WL_C#</p>
+            <pre><code>List&lt;string&gt; maListe = new List&lt;string&gt;();
+maListe.Add("WINDEV");
+maListe.Insert(0, "WEBDEV");
+maListe.RemoveAt(maListe.Count - 1);</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — UTILISER WL_C#                                     -->
+<!-- ============================================================ -->
+<section class="section section-claire" id="utilisation">
+  <div class="conteneur">
+    <p class="section-eyebrow">En pratique</p>
+    <h2>Utiliser WL_C#</h2>
+
+    <ol class="liste-etapes">
+      <li>
+        <h3>Télécharger la bibliothèque</h3>
+        <p>Récupérez la dernière archive sur la page des Releases, et décompressez-la :</p>
+        <pre><code>WL_v1.0.zip
+ ├─ WL.dll
+ └─ Donnees/Pays.ReferenceVersion.json</code></pre>
+        <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="lien-discret" target="_blank" rel="noopener">Voir la dernière version →</a>
+      </li>
+      <li>
+        <h3>Référencer WL.dll</h3>
+        <p>Dans votre projet, ajoutez une référence au fichier <code>WL.dll</code> (clic droit sur le
+        projet → <em>Ajouter une référence</em> → <em>Parcourir</em>), ou directement dans le
+        <code>.csproj</code> :</p>
+        <pre><code>&lt;ItemGroup&gt;
+  &lt;Reference Include="WL"&gt;
+    &lt;HintPath&gt;lib\WL.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;</code></pre>
+        <p class="note-secondaire">
+          Conservez le dossier <code>Donnees</code> à côté de votre exécutable&nbsp;: certaines fonctions
+          (PaysContinents) en ont besoin au démarrage. WL s'appuie aussi sur WinForms pour certaines
+          fonctions (presse-papiers, polices, boîtes de dialogue...) : pensez à activer
+          <code>&lt;UseWindowsForms&gt;true&lt;/UseWindowsForms&gt;</code> dans votre propre projet
+          si vous utilisez ces fonctions.
+        </p>
+      </li>
+      <li>
+        <h3>Importer les fonctions dont vous avez besoin</h3>
+        <p>Chaque catégorie de fonctions est une classe statique. Plutôt que d'ajouter un
+        <code>using static</code> au fil de l'eau dans chacun de vos fichiers, le plus simple est
+        d'ajouter un seul fichier <code>GlobalUsings.cs</code> à votre projet — exactement comme le
+        fait WL_C# en interne — pour rendre toutes les fonctions accessibles sans préfixe, partout
+        dans votre code :</p>
+        <pre><code>global using static WL.Chaines;
+global using static WL.Commandes;
+global using static WL.Constantes;
+global using static WL.Couleurs;
+global using static WL.Date;
+global using static WL.Dialogues;
+global using static WL.DiversUtils;
+global using static WL.Fichiers;
+global using static WL.Ftp;
+global using static WL.Listes;
+global using static WL.MarkDown;
+global using static WL.Numeriques;
+global using static WL.PaysContinents;
+global using static WL.Polices;
+global using static WL.PortsSérieParallèle;
+global using static WL.PressePapiers;
+global using static WL.Projet;
+global using static WL.Registres;
+global using static WL.Souris;
+global using static WL.Système;
+global using static WL.Tableaux;</code></pre>
+        <p class="note-secondaire">
+          <code>using static WL.Constantes;</code> est particulièrement important : c'est ce qui
+          permet d'utiliser les constantes WLangage (<code>psdJSON</code>, <code>PremierElément</code>,
+          <code>fselCrée</code>...) sans préfixe, exactement comme en WLangage.
+        </p>
+      </li>
+      <li>
+        <h3>Premier programme</h3>
+        <p>Une fois <code>GlobalUsings.cs</code> en place, les fonctions s'utilisent directement,
+        sans aucun préfixe :</p>
+        <pre><code>string sTexte = Majuscule("bonjour depuis WL_C#");
+fSauveTexte(fRepTemp() + "\\essai.txt", sTexte);</code></pre>
+      </li>
+      <li>
+        <h3>Avec l'IDE de votre choix</h3>
+        <p>
+          WL_C# est une bibliothèque .NET standard : elle fonctionne avec Visual Studio, JetBrains
+          Rider, Visual Studio Code, ou tout autre IDE prenant en charge .NET 10.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5 — VERSIONS                                           -->
+<!-- ============================================================ -->
+<section class="section" id="versions">
+  <div class="conteneur">
+    <p class="section-eyebrow">Suivi du projet</p>
+    <h2>Versions</h2>
+    <div class="chantier">
+      <p>
+        Cette section listera, mois après mois, le contenu de chaque nouvelle version de WL_C#
+        (fonctions ajoutées, types avancés supportés, corrections).
+      </p>
+      <p>
+        <strong>Chaque nouvelle version est publiée sous forme de Release sur GitHub</strong>, avec
+        son propre changelog et l'archive à télécharger.
+      </p>
+      <p class="note-secondaire">
+        Pour être prévenu automatiquement à chaque nouvelle version, cliquez sur
+        <strong>Watch → Custom → Releases only</strong> sur la page GitHub du projet — vous recevrez
+        un email à chaque publication, sans rien avoir à renseigner d'autre.
+      </p>
+      <a href="https://github.com/BernardSobra/WL-web/releases" class="lien-discret" target="_blank" rel="noopener">Voir toutes les versions sur GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6 — PROJET ET PHILOSOPHIE                              -->
+<!-- ============================================================ -->
+<section class="section section-fonce" id="philosophie">
+  <div class="conteneur">
+    <p class="section-eyebrow section-eyebrow-clair">Ce que vous pouvez attendre du projet</p>
+    <h2 class="titre-clair">Projet et philosophie</h2>
+    <div class="grille-philosophie">
+      <div class="philo-carte">
+        <h3>Une version le 10 de chaque mois</h3>
+        <p>De nouvelles fonctions et de nouveaux types avancés viennent régulièrement enrichir la librairie.</p>
+      </div>
+      <div class="philo-carte">
+        <h3>100% gratuit</h3>
+        <p>WL_C# est entièrement gratuite et peut être librement téléchargée.</p>
+      </div>
+      <div class="philo-carte">
+        <h3>Prête à l'emploi</h3>
+        <p>Une archive à télécharger librement à chaque version, sans compte ni installation complexe.</p>
+      </div>
+      <div class="philo-carte">
+        <h3>Compatibilité .NET</h3>
+        <p>Développée pour .NET 10, dans l'écosystème .NET standard.</p>
+      </div>
+      <div class="philo-carte">
+        <h3>Testée rigoureusement</h3>
+        <p>Une importante suite de tests automatisés valide le comportement de chaque fonction portée.</p>
+      </div>
+      <div class="philo-carte">
+        <h3>Contributions bienvenues</h3>
+        <p>Les contributions de la communauté pourront être acceptées à l'avenir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7 — TÉLÉCHARGEMENT                                     -->
+<!-- ============================================================ -->
+<section class="section section-cta">
+  <div class="conteneur conteneur-cta">
+    <h2>Prêt à retrouver vos réflexes WINDEV en C# ?</h2>
+    <p>Apprenez un nouveau langage en douceur, sans perdre vos automatismes.</p>
+    <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="bouton bouton-principal bouton-grand" target="_blank" rel="noopener">Télécharger WL_C#</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied-de-page">
+  <div class="conteneur pied-interieur">
+    <p>WL_C# — projet personnel de Bernard Sobra, gratuit.</p>
+    <a href="https://github.com/BernardSobra/WL-web" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+/* =============================================================
+   WL_C# — feuille de style
+   Palette inspirée de l'identité WinDev / PC SOFT (bleu profond).
+   ============================================================= */
+
+:root {
+  --bleu-fonce: #0B3D7A;
+  --bleu-fonce-2: #082C58;
+  --bleu-vif: #1565C0;
+  --bleu-clair: #EAF1FB;
+  --gris-fonce: #1F2937;
+  --gris-moyen: #4B5563;
+  --gris-clair: #F5F7FA;
+  --gris-bordure: #DDE3EC;
+  --blanc: #FFFFFF;
+  --code-bg: #0D1B2A;
+  --code-texte: #E6EEF8;
+  --rayon: 10px;
+  --ombre: 0 4px 16px rgba(11, 61, 122, 0.08);
+  --police: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --police-code: Consolas, "Cascadia Code", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--police);
+  color: var(--gris-fonce);
+  background: var(--blanc);
+  line-height: 1.6;
+}
+
+.conteneur {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.conteneur-texte { max-width: 760px; }
+
+h1, h2, h3 { line-height: 1.25; margin-top: 0; }
+
+/* ---------------- en-tête / navigation ---------------- */
+
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--blanc);
+  border-bottom: 1px solid var(--gris-bordure);
+}
+
+.entete-interieur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--bleu-fonce);
+  text-decoration: none;
+}
+.logo span { color: var(--bleu-vif); }
+
+.nav-principale {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-principale a {
+  color: var(--gris-fonce);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.nav-principale a:hover { color: var(--bleu-vif); }
+.nav-principale .bouton-nav {
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+  padding: 8px 16px;
+  border-radius: var(--rayon);
+}
+.nav-principale .bouton-nav:hover { background: var(--bleu-vif); color: var(--blanc); }
+
+.bouton-menu-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.bouton-menu-mobile span {
+  width: 24px;
+  height: 2px;
+  background: var(--bleu-fonce);
+  display: block;
+}
+
+/* ---------------- sections génériques ---------------- */
+
+.section { padding: 72px 0; }
+.section-claire { background: var(--gris-clair); }
+.section-fonce { background: var(--bleu-fonce-2); color: var(--blanc); }
+.section-fonce h2, .section-fonce h3 { color: var(--blanc); }
+.section-fonce p { color: #C9D8ED; }
+
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--bleu-vif);
+  margin-bottom: 8px;
+}
+.section-eyebrow-clair { color: #7FB0F0; }
+
+.section-intro {
+  max-width: 640px;
+  color: var(--gris-moyen);
+  font-size: 1.05rem;
+}
+
+.section-note {
+  margin-top: 32px;
+  color: var(--gris-moyen);
+}
+
+/* ---------------- hero (section 1) ---------------- */
+
+.hero {
+  padding: 96px 0 64px;
+  background: linear-gradient(180deg, var(--bleu-clair) 0%, var(--blanc) 100%);
+  text-align: center;
+}
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--bleu-vif);
+}
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--bleu-fonce);
+  margin: 8px 0 4px;
+}
+.hero-soustitre {
+  font-size: 1.3rem;
+  color: var(--gris-fonce);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.hero-texte {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  color: var(--gris-moyen);
+  font-size: 1.05rem;
+}
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--rayon);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.bouton-principal {
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+  box-shadow: var(--ombre);
+}
+.bouton-principal:hover { background: var(--bleu-vif); transform: translateY(-1px); }
+.bouton-secondaire {
+  background: var(--blanc);
+  color: var(--bleu-fonce);
+  border: 1.5px solid var(--bleu-fonce);
+}
+.bouton-secondaire:hover { background: var(--bleu-clair); }
+.bouton-grand { padding: 18px 36px; font-size: 1.1rem; }
+
+.hero-chiffres {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--gris-bordure);
+}
+.chiffre { display: flex; flex-direction: column; align-items: center; }
+.chiffre strong { font-size: 2rem; color: var(--bleu-fonce); }
+.chiffre span { font-size: 0.9rem; color: var(--gris-moyen); }
+
+/* ---------------- section 2 : fonctions ---------------- */
+
+.grille-modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.module-carte {
+  background: var(--blanc);
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--rayon);
+  padding: 20px;
+  text-align: center;
+}
+.module-nombre {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--bleu-fonce);
+}
+.module-nom {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--gris-moyen);
+  margin-top: 4px;
+}
+
+/* ---------------- section 3 : exemples ---------------- */
+
+.exemple-grand {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+.exemple-grand-compact { margin-top: 12px; }
+.exemple-colonne { min-width: 0; }
+.exemple-etiquette {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+  padding-left: 10px;
+  border-left: 4px solid transparent;
+}
+.exemple-etiquette-avec { color: var(--bleu-fonce); border-color: var(--bleu-fonce); }
+.exemple-etiquette-sans { color: var(--gris-moyen); border-color: var(--gris-moyen); }
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-texte);
+  padding: 18px 20px;
+  border-radius: var(--rayon);
+  overflow-x: auto;
+  margin: 0;
+  font-size: 0.88rem;
+}
+code { font-family: var(--police-code); }
+:not(pre) > code {
+  background: var(--bleu-clair);
+  color: var(--bleu-fonce);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.exemple-note {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: var(--bleu-clair);
+  border-radius: var(--rayon);
+  color: var(--gris-fonce);
+  font-size: 0.95rem;
+}
+
+.exemple-titre-secondaire {
+  margin-top: 56px;
+  font-size: 1.2rem;
+  color: var(--bleu-fonce);
+}
+.exemple-petits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 20px;
+}
+.exemple-petit-titre {
+  font-weight: 700;
+  color: var(--gris-fonce);
+  margin-bottom: 4px;
+}
+
+/* ---------------- section 4 : utilisation ---------------- */
+
+.liste-etapes {
+  counter-reset: etape;
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.liste-etapes > li {
+  position: relative;
+  padding-left: 52px;
+}
+.liste-etapes > li::before {
+  counter-increment: etape;
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bleu-fonce);
+  color: var(--blanc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.liste-etapes h3 { margin-bottom: 8px; font-size: 1.1rem; }
+.liste-etapes pre { margin-top: 12px; }
+.note-secondaire {
+  font-size: 0.9rem;
+  color: var(--gris-moyen);
+  margin-top: 8px;
+}
+
+/* ---------------- section 5 : versions ---------------- */
+
+.chantier {
+  margin-top: 24px;
+  padding: 28px;
+  border: 1.5px dashed var(--gris-bordure);
+  border-radius: var(--rayon);
+  background: var(--gris-clair);
+}
+.lien-discret {
+  color: var(--bleu-vif);
+  text-decoration: none;
+  font-weight: 600;
+}
+.lien-discret:hover { text-decoration: underline; }
+
+/* ---------------- section 6 : philosophie ---------------- */
+
+.grille-philosophie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.philo-carte {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--rayon);
+  padding: 22px;
+}
+.philo-carte h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.philo-carte p { margin: 0; font-size: 0.92rem; }
+
+/* ---------------- section 7 : téléchargement ---------------- */
+
+.section-cta {
+  text-align: center;
+  background: var(--bleu-clair);
+}
+.conteneur-cta h2 { color: var(--bleu-fonce); font-size: 2rem; }
+.conteneur-cta p { color: var(--gris-moyen); margin-bottom: 32px; }
+
+/* ---------------- pied de page ---------------- */
+
+.pied-de-page {
+  background: var(--bleu-fonce-2);
+  color: #A9C1E0;
+  padding: 24px 0;
+}
+.pied-interieur {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+.pied-interieur a { color: #A9C1E0; }
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 820px) {
+  .nav-principale {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--blanc);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gris-bordure);
+    display: none;
+  }
+  .nav-principale.ouvert { display: flex; }
+  .bouton-menu-mobile { display: flex; }
+  .exemple-grand { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.5rem; }
+}
