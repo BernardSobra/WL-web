@@ -417,6 +417,7 @@ code { font-family: var(--police-code); }
   font-size: 0.9rem;
 }
 .pied-interieur a { color: #A9C1E0; }
+.pied-date { opacity: 0.75; }
 
 /* ---------------- responsive ---------------- */
 
