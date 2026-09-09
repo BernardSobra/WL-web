@@ -361,6 +361,26 @@ code { font-family: var(--police-code); }
   border-radius: var(--rayon);
   background: var(--gris-clair);
 }
+.version-carte {
+  margin-top: 24px;
+  padding: 24px 28px;
+  border: 1px solid var(--gris-bordure);
+  border-radius: var(--rayon);
+  background: var(--gris-clair);
+  box-shadow: var(--ombre);
+}
+.version-etiquette {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bleu-fonce);
+  margin: 0 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--bleu-fonce);
+}
+.version-carte p:not(.version-etiquette) { margin: 0 0 14px; }
+.notes-versions { margin-top: 20px; }
 .lien-discret {
   color: var(--bleu-vif);
   text-decoration: none;

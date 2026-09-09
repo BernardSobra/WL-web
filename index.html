@@ -327,7 +327,8 @@ maListe.RemoveAt(maListe.Count - 1);</code></pre>
         d'ajouter un seul fichier <code>GlobalUsings.cs</code> à votre projet — exactement comme le
         fait WL_C# en interne — pour rendre toutes les fonctions accessibles sans préfixe, partout
         dans votre code :</p>
-        <pre><code>global using static WL.Chaines;
+        <pre><code>global using static WL.AppelsAPI;
+global using static WL.Chaines;
 global using static WL.Commandes;
 global using static WL.Constantes;
 global using static WL.Couleurs;
@@ -336,10 +337,12 @@ global using static WL.Dialogues;
 global using static WL.DiversUtils;
 global using static WL.Fichiers;
 global using static WL.Ftp;
+global using static WL.Géolocalisation;
 global using static WL.Listes;
 global using static WL.MarkDown;
 global using static WL.Numeriques;
 global using static WL.PaysContinents;
+global using static WL.PileFile;
 global using static WL.Polices;
 global using static WL.PortsSérieParallèle;
 global using static WL.PressePapiers;
@@ -347,7 +350,8 @@ global using static WL.Projet;
 global using static WL.Registres;
 global using static WL.Souris;
 global using static WL.Système;
-global using static WL.Tableaux;</code></pre>
+global using static WL.Tableaux;
+global using static WL.TypeAvanceConstantes;</code></pre>
         <p class="note-secondaire">
           <code>using static WL.Constantes;</code> est particulièrement important : c'est ce qui
           permet d'utiliser les constantes WLangage (<code>psdJSON</code>, <code>PremierElément</code>,
@@ -379,14 +383,19 @@ fSauveTexte(fRepTemp() + "\\essai.txt", sTexte);</code></pre>
   <div class="conteneur">
     <p class="section-eyebrow">Suivi du projet</p>
     <h2>Versions</h2>
-    <div class="chantier">
+    <div class="version-carte">
+      <p class="version-etiquette">Version 1.2 — 9 septembre 2026</p>
       <p>
-        Cette section listera, mois après mois, le contenu de chaque nouvelle version de WL_C#
-        (fonctions ajoutées, types avancés supportés, corrections).
+        Première version officielle de WL_C#&nbsp;: 693 fonctions réparties en 19 catégories,
+        50 types avancés, validés par une suite de plus de 2580 tests automatisés.
       </p>
-      <p>
-        <strong>Chaque nouvelle version est publiée sous forme de Release sur GitHub</strong>, avec
-        son propre changelog et l'archive à télécharger.
+      <a href="https://github.com/BernardSobra/WL-web/releases/tag/v1.2" class="lien-discret" target="_blank" rel="noopener">Voir le changelog complet et télécharger →</a>
+    </div>
+    <div class="notes-versions">
+      <p class="note-secondaire">
+        Cette section listera, mois après mois, le contenu de chaque nouvelle version de WL_C#
+        (fonctions ajoutées, types avancés supportés, corrections). Chaque version est publiée
+        sous forme de Release sur GitHub, avec son propre changelog et l'archive à télécharger.
       </p>
       <p class="note-secondaire">
         Pour être prévenu automatiquement à chaque nouvelle version, cliquez sur
