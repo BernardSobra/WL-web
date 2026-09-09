@@ -39,9 +39,12 @@
     <p class="hero-soustitre">La transition naturelle de WINDEV vers Visual Studio &amp; C#</p>
     <p class="hero-texte">
       WL_C# est une librairie C# destinée en priorité aux développeurs qui connaissent et utilisent
-      couramment le WLangage de WINDEV. Son objectif est simple&nbsp;: faciliter le passage vers C#
-      et Visual Studio, sans perdre les habitudes, les automatismes et le confort apportés par les
-      fonctions du WLangage.
+      couramment le WLangage de WINDEV mais qui peuvent être plus mal à l'aise sur l'environnement
+      Visual Studio ou le langage C#/C++ en général.<br><br>
+      Son objectif est simple&nbsp;:<br>
+      faciliter le passage vers C# et Visual Studio,<br>
+      sans perdre les habitudes, les automatismes et le confort<br>
+      apportés par les fonctions du WLangage.
     </p>
     <div class="hero-actions">
       <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="bouton bouton-principal" target="_blank" rel="noopener">Télécharger WL_C#</a>
@@ -73,10 +76,24 @@
       en travaillant dans l'écosystème C# / .NET.
     </p>
     <p>
-      WL_C# n'a pas vocation à remplacer .NET, ni à masquer C#. Elle permet au contraire de réduire
-      la courbe d'apprentissage, d'accélérer le développement et de rendre le code immédiatement
-      plus familier pour un développeur venant de WINDEV.
+      WL_C# n'a pas vocation à remplacer .NET, ni à masquer C#. Elle permet au contraire à un
+      développeur venant du monde WINDEV&nbsp;:
     </p>
+    <ul>
+      <li>de réduire la courbe d'apprentissage,</li>
+      <li>d'accélérer le développement,</li>
+      <li>de rendre le code immédiatement plus familier.</li>
+    </ul>
+    <pre><code>// Ouverture d'un fichier externe
+int IDFichier;
+string ResLecture;
+IDFichier = fOuvre("C:\MesRépertoires\Fichier.txt", foLectureEcriture)
+if (!IDFichier==-1)
+{
+      // Lecture d'une ligne dans ce fichier
+      ResLecture = fLitLigne(IDFichier)
+       ...
+}</code></pre>
     <p>
       La librairie est développée et validée à l'aide d'une importante suite de tests automatisés
       (plus de 2500 tests à ce jour), afin de vérifier autant que possible la compatibilité du
@@ -436,7 +453,7 @@ fSauveTexte(fRepTemp() + "\\essai.txt", sTexte);</code></pre>
 
 <footer class="pied-de-page">
   <div class="conteneur pied-interieur">
-    <p>WL_C# — projet personnel de Bernard Sobra, gratuit. <span class="pied-date">· Dernière mise à jour : 09/09/2026</span></p>
+    <p>WL_C# — projet personnel de Bernard Sobra, gratuit. <span class="pied-date">· 31 000 lignes de code (dont 40&nbsp;% de commentaires) · Dernière mise à jour : 09/09/2026</span></p>
     <a href="https://github.com/BernardSobra/WL-web" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
