@@ -295,39 +295,63 @@ maListe.RemoveAt(maListe.Count - 1);</code></pre>
 
     <ol class="liste-etapes">
       <li>
+        <h3>Vérifier les prérequis</h3>
+        <p>WL_C# fonctionne sous Windows 10 version 2004 (build 19041) ou plus récent, avec le
+        runtime .NET 10 Desktop — déjà présent si vous avez installé le SDK .NET 10.</p>
+      </li>
+      <li>
         <h3>Télécharger la bibliothèque</h3>
-        <p>Récupérez la dernière archive sur la page des Releases, et décompressez-la :</p>
-        <pre><code>WL_v1.0.zip
+        <p>Récupérez la dernière archive sur la page des Releases, et décompressez-la dans un
+        dossier <code>lib</code> de votre projet&nbsp;:</p>
+        <pre><code>lib/
  ├─ WL.dll
+ ├─ Constantes.dll
+ ├─ ChronoComp.dll
+ ├─ WL.TraceViewer.exe
  └─ Donnees/Pays.ReferenceVersion.json</code></pre>
         <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="lien-discret" target="_blank" rel="noopener">Voir la dernière version →</a>
       </li>
       <li>
-        <h3>Référencer WL.dll</h3>
-        <p>Dans votre projet, ajoutez une référence au fichier <code>WL.dll</code> (clic droit sur le
-        projet → <em>Ajouter une référence</em> → <em>Parcourir</em>), ou directement dans le
-        <code>.csproj</code> :</p>
-        <pre><code>&lt;ItemGroup&gt;
+        <h3>Configurer votre projet</h3>
+        <p>Dans le <code>.csproj</code> de votre projet, ciblez la même plate-forme que WL_C#,
+        référencez <code>WL.dll</code> et ajoutez les paquets NuGet dont elle a besoin&nbsp;:</p>
+        <pre><code>&lt;PropertyGroup&gt;
+  &lt;TargetFramework&gt;net10.0-windows10.0.19041.0&lt;/TargetFramework&gt;
+  &lt;UseWindowsForms&gt;true&lt;/UseWindowsForms&gt;
+&lt;/PropertyGroup&gt;
+
+&lt;ItemGroup&gt;
   &lt;Reference Include="WL"&gt;
     &lt;HintPath&gt;lib\WL.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
+  &lt;PackageReference Include="ClosedXML" Version="0.105.1" /&gt;
+  &lt;PackageReference Include="DocumentFormat.OpenXml" Version="3.5.1" /&gt;
+  &lt;PackageReference Include="Markdig" Version="1.3.2" /&gt;
+  &lt;PackageReference Include="NetTopologySuite" Version="2.6.0" /&gt;
+  &lt;PackageReference Include="System.IO.Ports" Version="8.0.0" /&gt;
+  &lt;None Update="lib\Donnees\Pays.ReferenceVersion.json" Link="Donnees\Pays.ReferenceVersion.json" CopyToOutputDirectory="PreserveNewest" /&gt;
+  &lt;None Update="lib\WL.TraceViewer.exe" Link="WL.TraceViewer.exe" CopyToOutputDirectory="PreserveNewest" /&gt;
 &lt;/ItemGroup&gt;</code></pre>
         <p class="note-secondaire">
-          Conservez le dossier <code>Donnees</code> à côté de votre exécutable&nbsp;: certaines fonctions
-          (PaysContinents) en ont besoin au démarrage. WL s'appuie aussi sur WinForms pour certaines
-          fonctions (presse-papiers, polices, boîtes de dialogue...) : pensez à activer
-          <code>&lt;UseWindowsForms&gt;true&lt;/UseWindowsForms&gt;</code> dans votre propre projet
-          si vous utilisez ces fonctions.
+          Sans ces paquets NuGet, les fonctions Excel, Markdown, géolocalisation et ports série
+          s'arrêtent sur une erreur «&nbsp;fichier introuvable&nbsp;» dès leur premier appel. La
+          plate-forme <code>windows10.0.19041.0</code> est nécessaire aux fonctions Bluetooth, et
+          <code>UseWindowsForms</code> aux fonctions presse-papiers, polices et boîtes de dialogue.
+          Les deux lignes <code>None</code> copient automatiquement à côté de votre exécutable le
+          dossier <code>Donnees</code> (utilisé par PaysContinents) et <code>WL.TraceViewer.exe</code>
+          (la fenêtre qui affiche les <code>Trace()</code>).
         </p>
       </li>
       <li>
         <h3>Importer les fonctions dont vous avez besoin</h3>
         <p>Chaque catégorie de fonctions est une classe statique. Plutôt que d'ajouter un
         <code>using static</code> au fil de l'eau dans chacun de vos fichiers, le plus simple est
-        d'ajouter un seul fichier <code>GlobalUsings.cs</code> à votre projet — exactement comme le
+        d'ajouter un seul fichier <code>GlobalUsings.cs</code> à votre projet — comme le
         fait WL_C# en interne — pour rendre toutes les fonctions accessibles sans préfixe, partout
         dans votre code :</p>
         <pre><code>global using static WL.AppelsAPI;
+global using static WL.Applications;
+global using static WL.BTLE;
 global using static WL.Chaines;
 global using static WL.Commandes;
 global using static WL.Constantes;
@@ -335,11 +359,17 @@ global using static WL.Couleurs;
 global using static WL.Date;
 global using static WL.Dialogues;
 global using static WL.DiversUtils;
+global using static WL.Domotique;
+global using static WL.Drives;
 global using static WL.Fichiers;
 global using static WL.Ftp;
+global using static WL.Geometrie;
 global using static WL.Géolocalisation;
+global using static WL.GglDocuments;
+global using static WL.Json;
 global using static WL.Listes;
 global using static WL.MarkDown;
+global using static WL.Navigateur;
 global using static WL.Numeriques;
 global using static WL.PaysContinents;
 global using static WL.PileFile;
@@ -348,10 +378,15 @@ global using static WL.PortsSérieParallèle;
 global using static WL.PressePapiers;
 global using static WL.Projet;
 global using static WL.Registres;
+global using static WL.Scanneurs;
 global using static WL.Souris;
+global using static WL.SynthèseVocale;
 global using static WL.Système;
 global using static WL.Tableaux;
-global using static WL.TypeAvanceConstantes;</code></pre>
+global using static WL.TypeAvanceConstantes;
+global using static WL.UPNP;
+global using static WL.Uris;
+global using static WL.Xls;</code></pre>
         <p class="note-secondaire">
           <code>using static WL.Constantes;</code> est particulièrement important : c'est ce qui
           permet d'utiliser les constantes WLangage (<code>psdJSON</code>, <code>PremierElément</code>,
