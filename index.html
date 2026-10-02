@@ -336,6 +336,7 @@ maListe.RemoveAt(maListe.Count - 1);</code></pre>
  ├─ WL.dll
  ├─ Constantes.dll
  ├─ ChronoComp.dll
+ ├─ WL.Webservices.dll   (facultative : webservices, voir plus bas)
  ├─ WL.TraceViewer.exe
  └─ Donnees/Pays.ReferenceVersion.json</code></pre>
         <a href="https://github.com/BernardSobra/WL-web/releases/latest" class="lien-discret" target="_blank" rel="noopener">Voir la dernière version →</a>
@@ -384,11 +385,14 @@ maListe.RemoveAt(maListe.Count - 1);</code></pre>
         d'ajouter un seul fichier <code>GlobalUsings.cs</code> à votre projet — comme le
         fait WL_C# en interne — pour rendre toutes les fonctions accessibles sans préfixe, partout
         dans votre code :</p>
-        <pre><code>global using static WL.Anglais;   // facultatif : noms anglais des fonctions
+        <pre><code>global using WL;                  // types avancés : Tableau, Buffer, Certificat, httpRequête...
+global using Buffer = WL.Buffer;  // le Buffer de WL, et non System.Buffer
+global using static WL.Anglais;   // facultatif : noms anglais des fonctions
 global using static WL.AppelsAPI;
 global using static WL.Applications;
 global using static WL.Archivage;
 global using static WL.BTLE;
+global using static WL.Certificats;
 global using static WL.Chaines;
 global using static WL.Champs;
 global using static WL.Commandes;
@@ -448,6 +452,42 @@ global using static WL.Xml;</code></pre>
         sans aucun préfixe :</p>
         <pre><code>string sTexte = Majuscule("bonjour depuis WL_C#");
 fSauveTexte(fRepTemp() + "\\essai.txt", sTexte);</code></pre>
+      </li>
+      <li>
+        <h3>Exposer un webservice (facultatif)</h3>
+        <p>Les fonctions <code>WebserviceParamètre</code>, <code>WebserviceEcritCodeHTTP</code>,
+        <code>WebserviceEnvoieMorceau</code>, <code>DéclareContexteWebservice</code>... sont dans
+        <code>WL.Webservices.dll</code>, à part pour que <code>WL.dll</code> n'impose pas ASP.NET Core
+        aux projets qui n'en ont pas besoin. Pour un webservice REST, ajoutez au <code>.csproj</code>&nbsp;:</p>
+        <pre><code>&lt;ItemGroup&gt;
+  &lt;FrameworkReference Include="Microsoft.AspNetCore.App" /&gt;
+  &lt;Reference Include="WL.Webservices"&gt;
+    &lt;HintPath&gt;lib\WL.Webservices.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;</code></pre>
+        <p>puis, dans <code>GlobalUsings.cs</code>&nbsp;:</p>
+        <pre><code>global using Microsoft.AspNetCore.Builder;
+global using static WL.Webservices;</code></pre>
+        <p>Les points d'entrée se déclarent comme dans la description d'un webservice REST de WEBDEV&nbsp;:
+        méthode HTTP, ressource et procédure.</p>
+        <pre><code>var app = WebApplication.Create(args);
+app.UtiliseWebservicesWL();
+app.PointEntréeWebservice("GET", "/Clients/{NumCli}", ws_LitClient);
+app.PointEntréeWebservice("POST", "/Clients", ws_CréeClient, paramètreDésérialisé: "client");
+app.Run();
+
+string ws_LitClient(int NumCli)
+{
+    if (NumCli &lt;= 0) { WebserviceEcritCodeHTTP(404, "Client inconnu"); return ""; }
+    WebserviceEcritTypeMIME(typeMimeJSON);
+    return "{\"numero\":" + NumCli + "}";
+}</code></pre>
+        <p class="note-secondaire">
+          Le serveur est celui d'ASP.NET Core (Kestrel, ou IIS). Les éléments variables de la ressource
+          (<code>{NumCli}</code>) et les paramètres de l'URL remplissent les paramètres de même nom de la
+          procédure ; ce qu'elle renvoie devient la réponse. Côté client, les types <code>wsRequête</code> et
+          <code>wsRéponse</code> de <code>WL.dll</code> appellent un webservice SOAP.
+        </p>
       </li>
       <li>
         <h3>Avec l'IDE de votre choix</h3>
